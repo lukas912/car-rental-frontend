@@ -1,5 +1,12 @@
 $(document).ready(function() {
     init();
+
+    //EVETNS
+
+
+    $(document).on ("click", ".btn_detail", function () {
+        window.location.href=`/car_detail.html?id=${this.id}`
+    });
 });
 
 function init() {
@@ -14,6 +21,7 @@ function init() {
             console.log(err);
         }
     });
+
 }
 
 function listCars(data) {
@@ -30,7 +38,7 @@ function createCard(item) {
         <div class="card-image">
           <img src="img/car.jpg">
           <span class="card-title">${item.brand}</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light red btn_detail"  id="${item.id}"><i class="material-icons">add</i></a>
         </div>
         <div class="card-content">
           <p>${item.model}</p>
